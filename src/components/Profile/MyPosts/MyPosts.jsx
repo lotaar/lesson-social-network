@@ -8,8 +8,8 @@ const MyPosts = () => {
       My posts
       <div>New Post</div>
       <div className={styles.posts}>
-        <Post/>
-        <Post/>
+        <Post message = 'Я понял что такое пропсы' likeCount = '14'/>
+        <Post message = 'Но это не точно' likeCount = '88'/>
       </div>
     </div>
   );
