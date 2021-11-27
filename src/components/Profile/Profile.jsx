@@ -1,9 +1,10 @@
 import React from "react";
-import './Profile.css'
+import MyPosts from "./MyPosts/MyPosts";
+import styles from './Profile.module.css'
 
 const Profile = () => {
     return (
-      <div className="content">
+      <div className={styles.content}>
         <div>
           <img
             alt=""
@@ -11,16 +12,9 @@ const Profile = () => {
           />
         </div>
         <div>ava+desc</div>
-        <div>
-          My posts
-          <div>New Post</div>
-          <div className='posts'>
-            <div className='item'>post1</div>
-            <div className='item'>post2</div>
-          </div>
-        </div>
+        <MyPosts/>
       </div>
     )
 }
 
-export default Profile;
+export default Profile; 
