@@ -3,12 +3,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
-export const Navbar = () => {
+export const Navbar = (props) => {
   return (
     <nav className={styles.nav}>
       <div className={styles.item}>
         <NavLink
-          className={({ isActive }) => classNames({ [styles.active]: isActive })}
+          className={({ isActive }) => isActive && styles.active}
           to="/profile"
         >
           Profile
