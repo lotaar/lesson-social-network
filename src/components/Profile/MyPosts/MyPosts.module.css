@@ -1,8 +1,6 @@
-.content {
-    grid-area: c;
-    background-color: cornflowerblue;
-  }
-
-  .item {
-    color: white;
-  }
+.PostsBlock {
+  padding: 10px;
+}
+.posts {
+  padding-top: 10px;
+}

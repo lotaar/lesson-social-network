@@ -1,26 +1,38 @@
 import classnames from "classnames";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styles from "./Dialogs.module.css";
+
+const DialogItem = (props) => {
+  const path = "/dialogs/" + props.id;
+  return (
+    <div className={classnames(styles.dialog, styles.active)}>
+      <NavLink to={path}>{props.name}</NavLink>
+    </div>
+  );
+};
+
+const Message = (props) => {
+  return <div className={styles.message}> {props.message}</div>;
+};
 
 const Dialogs = (props) => {
   return (
     <div className={styles.dialogs}>
-        <div className={styles.dialogItems}>
-            <div className={classnames(styles.dialog, styles.active)}> Птичкин</div>
-            <div className={styles.dialog}>Антон</div>
-            <div className={styles.dialog}>Сомик</div>
-            <div className={styles.dialog}>Соза</div>
-            <div className={styles.dialog}>Карась</div>
-            <div className={styles.dialog}>Стеф</div>
-        </div>
+      <div className={styles.dialogItems}>
+        <DialogItem name="Птичкин" id="1" />
+        <DialogItem name="Антон" id="2" />
+        <DialogItem name="Сомик" id="3" />
+        <DialogItem name="Соза" id="4" />
+        <DialogItem name="Карась" id="5" />
+        <DialogItem name="Стеф" id="6" />
+      </div>
 
-        <div className={styles.messages}>
-              <div className={styles.mesaage}>Реакт</div>
-              <div className={styles.mesaage}>Кабзда</div>
-              <div className={styles.mesaage}>Как просто</div>
-
-        </div>
+      <div className={styles.messages}>
+        <Message message="Рект" />
+        <Message message="Кабзда" />
+        <Message message="Как просто" />
+      </div>
     </div>
   );
 };
