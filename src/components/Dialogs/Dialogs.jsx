@@ -13,11 +13,11 @@ import Message from "./Message/Message"
 const Dialogs = (props) => {
 
 
-  let dialogsElements = props.dialogsData.map((el) => {
+  let dialogsElements = props.state.dialogs.map((el) => {
     return <DialogItem name={el.name} id={el.id} />;
   });
 
-  let messagesElements = props.messagesData.map((el) => <Message message={el.message} />);
+  let messagesElements = props.state.messages.map((el) => <Message message={el.message} />);
 
   return (
     <div className={styles.dialogs}>
