@@ -6,7 +6,7 @@ import styles from "./Dialogs.module.css";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
-  console.log(props)
+  
   let newMessageElement = React.createRef();
 
   let addMessage = () => {
