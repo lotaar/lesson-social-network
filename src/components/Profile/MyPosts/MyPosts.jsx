@@ -3,6 +3,7 @@ import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
+  
   let postsElements = props.state.posts.map((el) => (
     <Post message={el.message} likeCount={el.likesCount} />
   ));
@@ -25,7 +26,7 @@ const MyPosts = (props) => {
       <h3>My posts</h3>
       <div>
         <div>
-          <textarea onChange={onPostChange} ref={newPostsElement} value={props.newPostText}/>
+          <textarea onChange={onPostChange} ref={newPostsElement} value={props.state.newPostText}/>
         </div>
         <div>
           <button onClick={addPost}>Add post</button>

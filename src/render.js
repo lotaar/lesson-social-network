@@ -4,14 +4,14 @@ import "./index.css";
 import App from "./App";
 
 
-import {addPosts, updateNewPostText} from './redux/state'
+import {addMessage, addPosts, updateNewMessageText, updateNewPostText} from './redux/state'
 
 
 
  export let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
-          <App state={state} addPosts={addPosts} updateNewPostText={updateNewPostText}/>
+          <App state={state} addPosts={addPosts} updateNewPostText={updateNewPostText} addMessage ={addMessage} updateNewMessageText={updateNewMessageText}/>
         </React.StrictMode>,
         document.getElementById("root")
       );

@@ -18,6 +18,7 @@ let state = {
       { id: 5, message: "Дим" },
       { id: 6, message: "Димыч" },
     ],
+    newMessageText: 'it-kamasutra.com',
   },
   profilePage: {
     posts: [
@@ -49,5 +50,23 @@ export let updateNewPostText = (newText) => {
   state.profilePage.newPostText = newText;
   rerenderEntireTree(state);
 };
+
+
+export let addMessage = () => {
+  let newMessage = {
+    id:7,
+    message:state.dialogsPage.newMessageText,
+  }
+  state.dialogsPage.messages.push(newMessage)
+  state.dialogsPage.newMessageText = ''
+  rerenderEntireTree(state);
+}
+
+export let updateNewMessageText = (newText) => {
+  state.dialogsPage.newMessageText= newText;
+  rerenderEntireTree(state);
+}
+
+
 
 export default state;

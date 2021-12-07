@@ -6,12 +6,17 @@ import styles from "./Dialogs.module.css";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
+  console.log(props)
   let newMessageElement = React.createRef();
 
-  let sendMesaage = () => {
-    let text = newMessageElement.current.value;
-    alert(text);
+  let addMessage = () => {
+    props.addMessage();
   };
+
+  let onMessageChange = () => {
+    let text = newMessageElement.current.value
+    props.updateNewMessageText(text)
+  }
 
   let dialogsElements = props.state.dialogs.map((el) => {
     return <DialogItem name={el.name} id={el.id} />;
@@ -28,8 +33,8 @@ const Dialogs = (props) => {
       <div className={styles.messages}>
         {messagesElements}
         <div>
-          <textarea ref={newMessageElement}></textarea>
-          <button onClick={sendMesaage}>Отправить сообщение</button>
+          <textarea onChange={onMessageChange} ref={newMessageElement} value={props.state.newMessageText}/>
+          <button onClick={addMessage}>Отправить сообщение</button>
         </div>
       </div>
     </div>
