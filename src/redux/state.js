@@ -22,7 +22,7 @@ let store = {
         { id: 5, message: "Дим" },
         { id: 6, message: "Димыч" },
       ],
-      newMessageText: "it-kamasutra.com",
+      newMessageText: "",
     },
     profilePage: {
       posts: [
@@ -33,7 +33,7 @@ let store = {
         { id: 5, message: "Сан", likesCount: 44 },
         { id: 6, message: "Саныч", likesCount: 71 },
       ],
-      newPostText: "it-kamasutra.com",
+      newPostText: "",
     },
   },
   _callSubscriber() {
@@ -108,10 +108,23 @@ export const addPostActionCreator = () => {
 
 export const addUpdateNewPostTextActionCreator = (text) => {
   return{
-    type:'UPDATE-NEW-POST-TEXT',
+    type:UPDATE_NEW_POST_TEXT,
     newText: text,
   }
 }
 
+export const addMessageActionCreator = () => {
+  return {
+    type:ADD_MESSAGE
+  }
+}
+
+
+export const addUpdateNewMessageTextActionCreator = (text) => {
+  return {
+    type:UPDATE_NEW_MESSAGE_TEXT,
+    newText:text,
+  }
+}
 export default store;
 window.store = store;
