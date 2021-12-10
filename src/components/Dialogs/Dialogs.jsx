@@ -1,13 +1,14 @@
 import classnames from "classnames";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { addMessageActionCreator, addUpdateNewMessageTextActionCreator } from "../../redux/state";
+import { addMessageActionCreator, addUpdateNewMessageTextActionCreator } from "../../redux/dialogs-reducer";
 import DialogItem from "./DialogItem/DialogItem";
 import styles from "./Dialogs.module.css";
 import Message from "./Message/Message";
 
 
 const Dialogs = (props) => {
+  
   
 
   let addMessage = () => {
