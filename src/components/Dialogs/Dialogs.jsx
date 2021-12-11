@@ -40,7 +40,8 @@ const Dialogs = (props) => {
             placeholder='Введите ваше сообщение'
             value={props.state.newMessageText}
           />
-          <button onClick={addMessage}>Отправить сообщение</button>
+          <div><button onClick={addMessage}>Отправить сообщение</button>
+          </div>
         </div>
       </div>
     </div>

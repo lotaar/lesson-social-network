@@ -15,7 +15,27 @@ export const addUpdateNewMessageTextActionCreator = (text) => {
   };
 };
 
-const dialogsReducer = (state, action) => {
+let initialState =  {
+  dialogs: [
+    { id: 1, name: "Птичкин" },
+    { id: 2, name: "Антон" },
+    { id: 3, name: "Сомик" },
+    { id: 4, name: "Соза" },
+    { id: 5, name: "Карась" },
+    { id: 6, name: "Стеф" },
+  ],
+  messages: [
+    { id: 1, message: "Реакт" },
+    { id: 2, message: "Кабзда" },
+    { id: 3, message: "Как" },
+    { id: 4, message: "Просто" },
+    { id: 5, message: "Дим" },
+    { id: 6, message: "Димыч" },
+  ],
+  newMessageText: "",
+};
+
+const dialogsReducer = (state=initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE:
       let newMessage = {
