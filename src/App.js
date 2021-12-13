@@ -10,8 +10,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = (props) => {
+ 
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -23,9 +25,8 @@ const App = (props) => {
             <Route
               path="/dialogs/*"
               element={
-                <Dialogs
-                  state={props.state.dialogsPage}
-                  dispatch={props.dispatch}
+                <DialogsContainer
+                  store={props.store}
                 />
               }
             />
@@ -33,8 +34,7 @@ const App = (props) => {
               path="/profile"
               element={
                 <Profile
-                  state={props.state.profilePage}
-                  dispatch={props.dispatch}
+                store={props.store}
                 />
               }
             />

@@ -8,23 +8,23 @@ import Message from "./Message/Message";
 
 
 const Dialogs = (props) => {
-  
+ 
   
 
   let addMessage = () => {
-    props.dispatch(addMessageActionCreator());
+    props.onAddMessageClick()
   };
 
   let onMessageChange = (e) => {
     let text = e.target.value;
-    props.dispatch(addUpdateNewMessageTextActionCreator(text));
+   props.updateNewMessageText(text)
   };
 
-  let dialogsElements = props.state.dialogs.map((el) => {
+  let dialogsElements = props.dilogsPage.dialogs.map((el) => {
     return <DialogItem name={el.name} id={el.id} />;
   });
 
-  let messagesElements = props.state.messages.map((el) => (
+  let messagesElements = props.dilogsPage.messages.map((el) => (
     <Message message={el.message} />
   ));
 
@@ -38,7 +38,7 @@ const Dialogs = (props) => {
           <textarea
             onChange={onMessageChange}
             placeholder='Введите ваше сообщение'
-            value={props.state.newMessageText}
+            value={props.dilogsPage.newMessageText}
           />
           <div><button onClick={addMessage}>Отправить сообщение</button>
           </div>
