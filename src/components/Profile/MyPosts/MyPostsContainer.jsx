@@ -13,7 +13,8 @@ import Post from "./Post/Post";
 
 const mapStateToProps = (state) => {
   return {
-    posts:state.profilePage
+    posts:state.profilePage.posts,
+    newPostText:state.profilePage.newPostText
   }
 }
 

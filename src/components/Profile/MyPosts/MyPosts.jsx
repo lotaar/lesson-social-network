@@ -6,8 +6,8 @@ import Post from "./Post/Post";
 
 
 const MyPosts = (props) => {
-  let state = props.posts
-  let postsElements = state.posts.map((el) => (
+  
+  let postsElements = props.posts.map((el) => (
     <Post message={el.message} likeCount={el.likesCount} />
   ));
 
@@ -29,7 +29,7 @@ const MyPosts = (props) => {
       <h3>My posts</h3>
       <div>
         <div>
-          <textarea onChange={onPostChange} placeholder='Текст вашего поста' value={state.newPostText}/>
+          <textarea onChange={onPostChange} placeholder='Текст вашего поста' value={props.newPostText}/>
         </div>
         <div>
           <button onClick={addPost}>Add post</button>
