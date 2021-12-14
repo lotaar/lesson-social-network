@@ -1,5 +1,6 @@
 import classnames from "classnames";
 import React from "react";
+import { connect } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { addMessageActionCreator, addUpdateNewMessageTextActionCreator } from "../../redux/dialogs-reducer";
 import DialogItem from "./DialogItem/DialogItem";
@@ -8,26 +9,26 @@ import styles from "./Dialogs.module.css";
 import Message from "./Message/Message";
 
 
-const DialogsContainer = (props) => {
-  
-  let state = props.store.getState().dialogsPage
 
-  let addMessage = () => {
-    props.store.dispatch(addMessageActionCreator());
-  };
 
-  let onMessageChange = (text) => {
-    
-    props.store.dispatch(addUpdateNewMessageTextActionCreator(text));
-  };
+const mapStateToProps = (state) => {
 
- 
-  return (
-   <Dialogs onAddMessageClick={addMessage}
-   updateNewMessageText={onMessageChange}
-   dilogsPage={state}
-   />
-  );
-};
+  return {
+    dialogsPage:state.dialogsPage
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAddMessageClick:() => {
+      dispatch(addMessageActionCreator());
+    },
+    updateNewMessageText:(text)=> {
+      dispatch(addUpdateNewMessageTextActionCreator(text));
+    }
+  }
+}
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 
 export default DialogsContainer;

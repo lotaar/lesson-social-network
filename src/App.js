@@ -26,7 +26,7 @@ const App = (props) => {
               path="/dialogs/*"
               element={
                 <DialogsContainer
-                  store={props.store}
+                 
                 />
               }
             />
@@ -34,7 +34,7 @@ const App = (props) => {
               path="/profile"
               element={
                 <Profile
-                store={props.store}
+                
                 />
               }
             />
