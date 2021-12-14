@@ -29,7 +29,7 @@ const MyPostsContainer = (props) => {
     <MyPosts
     onAddPostClick={addPost}
     updateNewPostText={onPostChange}
-    posts={state.posts}
+    posts={state}
      />
   );
 };
