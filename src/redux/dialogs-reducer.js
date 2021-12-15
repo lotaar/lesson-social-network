@@ -15,7 +15,7 @@ export const addUpdateNewMessageTextActionCreator = (text) => {
   };
 };
 
-let initialState =  {
+let initialState = {
   dialogs: [
     { id: 1, name: "Птичкин" },
     { id: 2, name: "Антон" },
@@ -35,27 +35,50 @@ let initialState =  {
   newMessageText: "",
 };
 
-const dialogsReducer = (state=initialState, action) => {
+const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE:
-      let newMessage = {
-        id: 7,
-        message: state.newMessageText,
-      }
-      state.messages.push(newMessage);
-      state.newMessageText = "";
-
-      return state;
+      let text = state.newMessageText;
+      return {
+        ...state,
+        newMessageText: "",
+        messages: [...state.messages, { id: 7, message: text }],
+      };
 
     case UPDATE_NEW_MESSAGE_TEXT:
-      state.newMessageText = action.newText;
-
-      return state;
+      return {
+        ...state,
+        newMessageText: action.newText,
+      };
 
     default:
       return state;
   }
 };
 
-
 export default dialogsReducer;
+
+// const dialogsReducer = (state=initialState, action) => {
+//   switch (action.type) {
+//     case ADD_MESSAGE:{
+//       let newMessage = {
+//         id: 7,
+//         message: state.newMessageText,
+//       }
+//       let copyState = {...state}
+//       copyState.messages=[...state.messages]
+//       copyState.messages.push(newMessage);
+//       copyState.newMessageText = "";
+
+//       return copyState;
+//     }
+//     case UPDATE_NEW_MESSAGE_TEXT:{
+//       let stateCopy = {...state}
+//       stateCopy.newMessageText = action.newText;
+
+//       return stateCopy;
+//     }
+//     default:
+//       return state;
+//   }
+// };
