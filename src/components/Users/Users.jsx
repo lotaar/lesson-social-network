@@ -1,46 +1,34 @@
+import  * as axios from "axios";
 import React from "react";
 import styles from './users.module.css'
+import userPhoto from '../../assets/images/user.png'
 
 let Users = (props) => {
-
-    if (props.users.length===0) {
-        props.setUsers([
-            {
-                id: 1,
-                imgUrl:'https://otvet.imgsmail.ru/download/100904352_076d51e2eb56a498107564fac8ed6846_800.jpg',
-                followed: false,
-                fullName: "Dmitriy",
-                status: "I am a boss",
-                location: { city: "Minsk", country: "Belarus" },
-              },
-              {
-                id: 2,
-                imgUrl:'https://otvet.imgsmail.ru/download/100904352_076d51e2eb56a498107564fac8ed6846_800.jpg',
-                followed: true,
-                fullName: "V1lat",
-                status: "I am a boss too",
-                location: { city: "Kiev", country: "Ukraine" },
-              },
-              {
-                id: 3,
-                imgUrl:'https://otvet.imgsmail.ru/download/100904352_076d51e2eb56a498107564fac8ed6846_800.jpg',
-                followed: false,
-                fullName: "Viktor",
-                status: "I am a boss too",
-                location: { city: "Moscow", country: "Russia" },
-              },
-        ])
-    }
+     let getUsers =() =>{
+        if (props.users.length===0) {
+            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+                
+                props.setUsers(response.data.items)
+               
+            })
+           
+     
+        }
+     }
+   
    
 return (
 
     <div>
+        <button onClick={getUsers}>Get Users</button>
        {
            props.users.map(u => <div key={u.id}>
-               <span></span>
+               <span>
                <div>
-                   <img src={u.imgUrl} alt="" className={styles.photo}/>
+                   <img src={u.photos.small != null ? u.photos.small:userPhoto} alt="" className={styles.photo}/>
                </div>
+               </span>
+            
                <div>
                    {u.followed 
                    ? <button onClick={()=>{props.unfollow(u.id)}}>Unfollow</button>: 
@@ -48,12 +36,12 @@ return (
                </div>
                <span>
                    <span>
-                       <div>{u.fullName}</div>
+                       <div>{u.name}</div>
                        <div>{u.status}</div>
                    </span>
                    <span>
-                       <div>{u.location.country}</div>
-                       <div>{u.location.city}</div>
+                       <div>{'u.location.country'}</div>
+                       <div>{'u.location.city'}</div>
                    </span>
                </span>
            </div>)
