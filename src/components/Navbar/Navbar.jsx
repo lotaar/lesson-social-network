@@ -25,6 +25,14 @@ export const Navbar = (props) => {
       <div className={styles.item}>
         <NavLink
           className={({ isActive }) => classNames({ [styles.active]: isActive })}
+          to="/users"
+        >
+          Users
+        </NavLink>
+      </div>
+      <div className={styles.item}>
+        <NavLink
+          className={({ isActive }) => classNames({ [styles.active]: isActive })}
           to="/news"
         >
           News
