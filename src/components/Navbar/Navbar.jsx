@@ -8,7 +8,7 @@ export const Navbar = (props) => {
     <nav className={styles.nav}>
       <div className={styles.item}>
         <NavLink
-          className={({ isActive }) => isActive && styles.active}
+          activeClassName={styles.active}
           to="/profile"
         >
           Profile
@@ -16,7 +16,7 @@ export const Navbar = (props) => {
       </div>
       <div className={styles.item}>
         <NavLink
-          className={({ isActive }) => classNames({ [styles.active]: isActive })}
+          activeClassName={styles.active}
           to="/dialogs"
         >
           Messages
@@ -24,7 +24,7 @@ export const Navbar = (props) => {
       </div>
       <div className={styles.item}>
         <NavLink
-          className={({ isActive }) => classNames({ [styles.active]: isActive })}
+          activeClassName={styles.active}
           to="/users"
         >
           Users
@@ -32,7 +32,7 @@ export const Navbar = (props) => {
       </div>
       <div className={styles.item}>
         <NavLink
-          className={({ isActive }) => classNames({ [styles.active]: isActive })}
+          activeClassName={styles.active}
           to="/news"
         >
           News
@@ -40,7 +40,7 @@ export const Navbar = (props) => {
       </div>
       <div className={styles.item}>
         <NavLink
-          className={({ isActive }) => classNames({ [styles.active]: isActive })}
+         activeClassName={styles.active}
           to="/music"
         >
           Music
@@ -48,8 +48,8 @@ export const Navbar = (props) => {
       </div>
       <div className={styles.item}>
         <NavLink
-          className={({ isActive }) => classNames({ [styles.active]: isActive })}
-          to="settings"
+          activeClassName={styles.active}
+          to="/settings"
         >
           Settings
         </NavLink>
