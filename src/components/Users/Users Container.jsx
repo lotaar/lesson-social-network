@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { connect } from "react-redux";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 import {
   follow,
@@ -58,6 +59,8 @@ let mapStateToProps = (state) => {
   };
 };
 
+let AuthRedirectComponent = withAuthRedirect(usersContainer)
+
 // let mapDispatchToState = (dispatch) => {
 //   return {
 //     follow: (userId) => {
@@ -93,4 +96,4 @@ export default connect(mapStateToProps, {
     pageOnChangedSetUsers,
     
 
-})(usersContainer);
+})(AuthRedirectComponent);

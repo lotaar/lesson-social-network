@@ -1,7 +1,8 @@
 import classnames from "classnames";
 import React from "react";
 import { connect } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Redirect } from "react-router-dom";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { addMessageActionCreator, addUpdateNewMessageTextActionCreator } from "../../redux/dialogs-reducer";
 import DialogItem from "./DialogItem/DialogItem";
 import Dialogs from "./Dialogs";
@@ -15,7 +16,6 @@ const mapStateToProps = (state) => {
 
   return {
     dialogsPage:state.dialogsPage,
-    isAuth:state.auth.isAuth
   }
 }
 
@@ -30,6 +30,8 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+let AuthRedirectComponent = withAuthRedirect(Dialogs)
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent)
 
 export default DialogsContainer;
