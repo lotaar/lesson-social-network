@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { connect } from "react-redux";
+import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 import {
@@ -59,7 +60,7 @@ let mapStateToProps = (state) => {
   };
 };
 
-let AuthRedirectComponent = withAuthRedirect(usersContainer)
+// let AuthRedirectComponent = withAuthRedirect(usersContainer)
 
 // let mapDispatchToState = (dispatch) => {
 //   return {
@@ -84,7 +85,8 @@ let AuthRedirectComponent = withAuthRedirect(usersContainer)
 //   };
 // };
 
-export default connect(mapStateToProps, {
+export default compose(
+  connect(mapStateToProps, {
     follow,
     unfollow,
     setCurrentPage,
@@ -93,7 +95,21 @@ export default connect(mapStateToProps, {
     toggleIsFetching,
     toggleFollowingProgress,
     getUsers,
-    pageOnChangedSetUsers,
+    pageOnChangedSetUsers,}),
+    withAuthRedirect
+)
+(usersContainer)
+
+// export default connect(mapStateToProps, {
+//     follow,
+//     unfollow,
+//     setCurrentPage,
+//     setTotalUsersCount,
+//     setUsers,
+//     toggleIsFetching,
+//     toggleFollowingProgress,
+//     getUsers,
+//     pageOnChangedSetUsers,
     
 
-})(AuthRedirectComponent);
+// })(AuthRedirectComponent);
