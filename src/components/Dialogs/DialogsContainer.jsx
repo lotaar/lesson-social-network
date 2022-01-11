@@ -22,11 +22,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddMessageClick:() => {
-      dispatch(addMessageActionCreator());
-    },
-    updateNewMessageText:(text)=> {
-      dispatch(addUpdateNewMessageTextActionCreator(text));
+    onAddMessageClick:(newMessageText) => {
+      dispatch(addMessageActionCreator(newMessageText));
+    // },
+    // updateNewMessageText:(text)=> {
+    //   dispatch(addUpdateNewMessageTextActionCreator(text));
     }
   }
 }
