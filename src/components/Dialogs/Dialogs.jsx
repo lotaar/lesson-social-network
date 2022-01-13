@@ -7,9 +7,14 @@ import {
   addMessageActionCreator,
   addUpdateNewMessageTextActionCreator,
 } from "../../redux/dialogs-reducer";
+import { maxLengthCreator, required } from "../../utils/validators/validators";
+import { Textarea } from "../common/FormsControls/FormsControls";
 import DialogItem from "./DialogItem/DialogItem";
 import styles from "./Dialogs.module.css";
 import Message from "./Message/Message";
+
+
+let maxLength100 = maxLengthCreator(100) ;
 
 const Dialogs = (props) => {
   // let addMessage = () => {
@@ -51,7 +56,7 @@ const AddMessageForm = (props) => {
   return(
     <form onSubmit={props.handleSubmit}>
     <div>
-      <Field  component={'textarea'} name ={'newMessageText'} placeholder="Введите ваше сообщение"/>
+      <Field  component={Textarea} validate={[required,maxLength100]} name ={'newMessageText'} placeholder="Введите ваше сообщение"/>
     </div>
     <div>
       <button>Отправить сообщение</button>
