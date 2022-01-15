@@ -96,7 +96,7 @@ export default compose(
     toggleFollowingProgress,
     getUsers,
     pageOnChangedSetUsers,}),
-    withAuthRedirect
+    //withAuthRedirect
 )
 (usersContainer)
 
